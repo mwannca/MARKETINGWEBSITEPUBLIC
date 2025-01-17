@@ -1,0 +1,345 @@
+{
+  "ROOT": {
+    "type": {
+      "resolvedName": "CanvasContainer"
+    },
+    "isCanvas": true,
+    "props": {
+      "backgroundColor": "#ffffff"
+    },
+    "displayName": "CanvasContainer",
+    "custom": {},
+    "hidden": false,
+    "nodes": [
+      "vaDMb2eEHT",
+      "w7jY6bDJ6Z",
+      "Q3G0CfjTN0",
+      "lsqM6LOx8Q",
+      "kNHAydxX6s",
+      "1LPBE1zc2H"
+    ],
+    "linkedNodes": {}
+  },
+  "vaDMb2eEHT": {
+    "type": {
+      "resolvedName": "DraggableImage"
+    },
+    "isCanvas": false,
+    "props": {
+      "marginT": "10",
+      "marginB": "11",
+      "height": 100,
+      "width": 100,
+      "align": "center",
+      "src": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/QoaR5xTrr13nOLmMGk40/media/66733a198eaa1f2a30139845.png"
+    },
+    "displayName": "DraggableImage",
+    "custom": {},
+    "parent": "ROOT",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {}
+  },
+  "w7jY6bDJ6Z": {
+    "type": {
+      "resolvedName": "CustomisableContainer"
+    },
+    "isCanvas": true,
+    "props": {
+      "id": "container",
+      "height": "600",
+      "width": 700,
+      "alignX": "center",
+      "alignY": "center",
+      "flexDirection": "column",
+      "backgroundColor": "linear-gradient(0deg, rgba(0, 0, 0, 0.5), #F0F0F0)",
+      "borderRadius": 0
+    },
+    "displayName": "CustomisableContainer",
+    "custom": {},
+    "parent": "ROOT",
+    "hidden": false,
+    "nodes": [
+      "DFXaXIN4XK"
+    ],
+    "linkedNodes": {}
+  },
+  "DFXaXIN4XK": {
+    "type": {
+      "resolvedName": "Hero"
+    },
+    "isCanvas": false,
+    "props": {},
+    "displayName": "Hero",
+    "custom": {},
+    "parent": "w7jY6bDJ6Z",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {
+      "hero": "Gn9sxezqGI"
+    }
+  },
+  "Gn9sxezqGI": {
+    "type": "div",
+    "isCanvas": true,
+    "props": {},
+    "displayName": "div",
+    "custom": {},
+    "parent": "DFXaXIN4XK",
+    "hidden": false,
+    "nodes": [
+      "ea5H6jMJ5Q",
+      "DrB9AztZhq",
+      "iHUCYXnRTU"
+    ],
+    "linkedNodes": {}
+  },
+  "ea5H6jMJ5Q": {
+    "type": {
+      "resolvedName": "Text"
+    },
+    "isCanvas": false,
+    "props": {
+      "paddingT": 40,
+      "fontFamily": "Arial",
+      "textColor": "#ffffff",
+      "fontWeight": 600,
+      "align": "center",
+      "text": "CONQUER COLD IN STYLE",
+      "fontSize": 40
+    },
+    "displayName": "Text",
+    "custom": {},
+    "parent": "Gn9sxezqGI",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {}
+  },
+  "DrB9AztZhq": {
+    "type": {
+      "resolvedName": "DraggableImage"
+    },
+    "isCanvas": false,
+    "props": {
+      "width": 400,
+      "height": 400,
+      "align": "center",
+      "src": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/QoaR5xTrr13nOLmMGk40/media/66733a198eaa1f2a30139845.png"
+    },
+    "displayName": "DraggableImage",
+    "custom": {},
+    "parent": "Gn9sxezqGI",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {}
+  },
+  "iHUCYXnRTU": {
+    "type": {
+      "resolvedName": "DraggableButton"
+    },
+    "isCanvas": false,
+    "props": {
+      "fontSize": 20,
+      "fontWeight": 500,
+      "borderRadius": 10,
+      "align": "center",
+      "marginT": 20,
+      "paddingT": 10,
+      "paddingR": 20,
+      "paddingl": 20,
+      "paddingB": 10,
+      "backgroundColor": "#4CAF50",
+      "textColor": "#FFFFFF",
+      "text": "SHOP NOW"
+    },
+    "displayName": "DraggableButton",
+    "custom": {},
+    "parent": "Gn9sxezqGI",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {}
+  },
+  "lsqM6LOx8Q": {
+    "type": {
+      "resolvedName": "Text"
+    },
+    "isCanvas": false,
+    "props": {
+      "paddingT": "70",
+      "fontFamily": "Arial",
+      "textColor": "#000000",
+      "fontWeight": 600,
+      "align": "center",
+      "text": "You May Also Like",
+      "fontSize": "34"
+    },
+    "displayName": "Text",
+    "custom": {},
+    "parent": "ROOT",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {}
+  },
+  "kNHAydxX6s": {
+    "type": {
+      "resolvedName": "ShopProducts"
+    },
+    "isCanvas": false,
+    "props": {},
+    "displayName": "ShopProducts",
+    "custom": {},
+    "parent": "ROOT",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {
+      "row_one": "c30lpV0gCN",
+      "row_two": "rhybKjwoIW"
+    }
+  },
+  "c30lpV0gCN": {
+    "type": {
+      "resolvedName": "CustomisableContainer"
+    },
+    "isCanvas": false,
+    "props": {
+      "height": 230,
+      "width": 700,
+      "alignX": "center",
+      "alignY": "center",
+      "flexDirection": "row"
+    },
+    "displayName": "CustomisableContainer",
+    "custom": {},
+    "parent": "kNHAydxX6s",
+    "hidden": false,
+    "nodes": [
+      "MmFWGXAItL",
+      "kFHb9mLi4W"
+    ],
+    "linkedNodes": {}
+  },
+  "MmFWGXAItL": {
+    "type": {
+      "resolvedName": "CustomisableContainer"
+    },
+    "isCanvas": false,
+    "props": {
+      "height": 225,
+      "width": 180,
+      "flexDirection": "column"
+    },
+    "displayName": "CustomisableContainer",
+    "custom": {},
+    "parent": "c30lpV0gCN",
+    "hidden": false,
+    "nodes": [
+      "e9c93VAswE",
+      "d5oeS190Bn",
+      "atBr7Pj_R2"
+    ],
+    "linkedNodes": {}
+  },
+  "e9c93VAswE": {
+    "type": {
+      "resolvedName": "DraggableImage"
+    },
+    "isCanvas": false,
+    "props": {
+      "height": 160,
+      "width": 160,
+      "align": "start",
+      "src": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/QoaR5xTrr13nOLmMGk40/media/66733a198eaa1f2a30139845.png"
+    },
+    "displayName": "DraggableImage",
+    "custom": {},
+    "parent": "MmFWGXAItL",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {}
+  },
+  "d5oeS190Bn": {
+    "type": {
+      "resolvedName": "Text"
+    },
+    "isCanvas": false,
+    "props": {
+      "fontFamily": "Arial",
+      "textColor": "#000000",
+      "fontWeight": 400,
+      "align": "start",
+      "text": "Tremor Down Jacket",
+      "fontSize": "11"
+    },
+    "displayName": "Text",
+    "custom": {},
+    "parent": "MmFWGXAItL",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {}
+  },
+  "atBr7Pj_R2": {
+    "type": {
+      "resolvedName": "DraggableButton"
+    },
+    "isCanvas": false,
+    "props": {
+      "fontSize": 20,
+      "fontWeight": 500,
+      "borderRadius": 10,
+      "align": "center",
+      "paddingT": 10,
+      "paddingR": 10,
+      "paddingl": 10,
+      "paddingB": 10,
+      "fontFamily": "Arial",
+      "backgroundColor": "#4CAF50",
+      "textColor": "#00000",
+      "text": "SHOP NOW"
+    },
+    "displayName": "DraggableButton",
+    "custom": {},
+    "parent": "MmFWGXAItL",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {}
+  },
+  "1LPBE1zc2H": {
+    "type": {
+      "resolvedName": "DraggableFooter"
+    },
+    "isCanvas": false,
+    "props": {},
+    "displayName": "DraggableFooter",
+    "custom": {},
+    "parent": "ROOT",
+    "hidden": false,
+    "nodes": [],
+    "linkedNodes": {
+      "container": "H3qADGDS2U"
+    }
+  },
+  "H3qADGDS2U": {
+    "type": {
+      "resolvedName": "CustomisableContainer"
+    },
+    "isCanvas": false,
+    "props": {
+      "width": 700,
+      "height": 400,
+      "alignX": "center",
+      "alignY": "center",
+      "flexDirection": "column",
+      "backgroundColor": "linear-gradient(0deg, #F0F0F0, rgba(0, 0, 0, 0.5))"
+    },
+    "displayName": "CustomisableContainer",
+    "custom": {},
+    "parent": "1LPBE1zc2H",
+    "hidden": false,
+    "nodes": [
+      "PAMaglEYK8",
+      "ceu66ua4W-",
+      "lUvVSsGa1I"
+    ],
+    "linkedNodes": {}
+  }
+}

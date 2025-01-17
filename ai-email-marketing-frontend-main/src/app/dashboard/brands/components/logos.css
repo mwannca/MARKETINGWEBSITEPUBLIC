@@ -1,0 +1,62 @@
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ensures the grid auto-fills based on screen size */
+    gap: 1rem; /* Spacing between grid items */
+}
+
+.logo-grid div {
+    background-color: #3F3F3F; /* Adjust background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Fixed height for consistency */
+    width: 100%; /* Full width of the grid column */
+    overflow: hidden; /* Prevents image overflow */
+    border-radius: 0.75rem; /* Rounded corners for grid items */
+}
+
+.logo-grid div img {
+    object-fit: contain; /* Ensures images fit within the box without distortion */
+    width: 100%;
+    height: 100%;
+    max-height: 100%; /* Prevents images from overflowing vertically */
+}
+
+input[type="file"] {
+    display: none; /* Hides the file input */
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+label svg {
+    width: 40px;
+    height: 40px;
+    color: white;
+    opacity: 0.8;
+}
+
+.logo-grid-item {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+@media (min-width: 640px) {
+    .logo-grid-item {
+        width: 200px;
+        height: 200px;
+    }
+
+    label svg {
+        width: 50px;
+        height: 50px;
+    }
+}

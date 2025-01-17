@@ -1,0 +1,114 @@
+/* Landing Comments Section */
+.landing-comments-section {
+    display: flex;
+    flex-direction: column;
+    color: #f2f2f2;
+    width: 60vw;
+    margin: 0 auto;
+    padding: 4em 1em;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 2em;
+    line-height: 1.2;
+    width: 20em;
+}
+
+.title-highlight {
+    color: #a3e635; /* Lime green color */
+}
+
+/* Comment container */
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 60vw;
+    gap: 2em;
+    position: relative;
+}
+
+.comments-slider {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr); /* 3 rows of comments */
+    gap: 2em;
+    height: 35em;
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    justify-items: center; /* Center comments */
+}
+
+/* Comment card for displaying in rows */
+.comment-card {
+    background-color: #222;
+    padding: 2em;
+    border-radius: 50px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1em;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    opacity: 0.5;
+    width: 48vw;
+    margin: 1em;
+
+}
+
+.comment-card.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.comment-image {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-content p {
+    margin: 0.5em 0;
+}
+
+.comment-author {
+    color: #a3e635; /* Lime green for author */
+}
+
+.author-role {
+    color: #f2f2f2; /* White for role */
+}
+
+/* Comment Indicators */
+.comment-indicators {
+    position: absolute;
+    right: -2em;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #888;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator-dot.active {
+    background-color: #a3e635; /* Lime green for active indicator */
+}

@@ -1,0 +1,72 @@
+.navbar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: linear-gradient(180deg, rgba(39, 39, 42, 0.7) 25.3%, rgba(163, 230, 53, 0.28) 384.79%);
+    width: 90em;
+    color: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 15px 15px 0 0; /* Rounded top left and top right corners only */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    color: #a3e635; /* Lime green color matching the design */
+    font-weight: bold;
+}
+
+.navbar-links a {
+    margin: 0 20px;
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar-links a:hover {
+    color: #a3e635; /* Add hover effect */
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.sign-in-button {
+    background: transparent;
+    color: #f2f2f2;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sign-up-button {
+    background-color: #a3e635;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.sign-up-button:hover {
+    background-color: #84c926;
+}

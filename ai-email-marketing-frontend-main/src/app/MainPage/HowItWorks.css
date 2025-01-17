@@ -1,0 +1,102 @@
+.how-it-works-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60vw;
+    margin: 0 auto;
+    padding: 4em 1em;
+    color: #f2f2f2;
+}
+
+.how-it-works-title {
+    font-size: 0.875rem; /* Equivalent to 14px */
+    color: rgba(242, 242, 242, 0.8);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+    text-align: left; /* Align text to the left */
+}
+
+.how-it-works-heading {
+    font-size: 2rem; /* Equivalent to 32px */
+    text-align: left; /* Align text to the left */
+    font-weight: 600;
+    margin-bottom: 3em;
+    width: 14em;
+}
+
+.highlighted-text {
+    color: #a3e635; /* Lime green color for highlighted text */
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    justify-content: center;
+    width: 100%;
+}
+
+.step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #1c1c1f;
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    position: relative;
+}
+
+.step-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1em;
+}
+
+.step-number-circle {
+    background-color: transparent;
+    color: #a3e635;
+    border: 2px solid #a3e635;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    font-size: 1.25rem; /* Equivalent to 20px */
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+.step-title-container {
+    flex: 1;
+}
+
+.step-title {
+    font-size: 1.25rem; /* Equivalent to 20px */
+    font-weight: bold;
+    color: #f2f2f2;
+    margin-bottom: 0.5em;
+}
+
+.step-description {
+    font-size: 0.875rem; /* Equivalent to 14px */
+    color: rgba(242, 242, 242, 0.8);
+    width: 21vw;
+}
+
+.step-image-container {
+    background: #27272a;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.step-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+}

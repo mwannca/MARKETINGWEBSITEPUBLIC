@@ -1,0 +1,318 @@
+'use server'
+
+import { cookies } from "next/headers";
+import { Brand, Colors, Fonts, Product } from "../../../../types/types";
+
+export async function fetchBrands() {
+    try {
+        const token = cookies().get('Token')?.value;
+        const response = await fetch(`${process.env.BACKEND_URL}/brands/getBrands`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        const data = await response.json()
+        if (response.ok) {
+            return data.brands
+        } else {
+            return null
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function fetchSvgFromS3(logoUrl: string) {
+    try {
+        // Convert the provided URL to the correct S3 URL
+        // Extract the part after the domain (e.g. "57e46a90-8ff3-4354-bea6-0b7f61980acf/nike2_logo.svg")
+        const filePath = logoUrl.replace('https://app.brandmatchco.io.s3.amazonaws.com/', '');
+
+        // Construct the correct S3 URL format
+        const s3Url = `https://s3.ca-central-1.amazonaws.com/app.brandmatchco.io/${filePath}`;
+
+        // Fetch the SVG from the newly constructed URL
+        const response = await fetch(s3Url, {
+            method: 'GET',
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch the SVG');
+        }
+
+        const svgText = await response.text(); // Get the SVG as text
+
+        return svgText;
+    } catch (error) {
+        console.error('Error fetching SVG from S3:', error);
+        return null;
+    }
+}
+
+
+export async function ScrapeAndCreateBrand(name : string, url : string) {
+    try {
+        const token = cookies().get('Token')?.value;
+        const response = await fetch(`${process.env.BACKEND_URL}/brands/scrapeBrand`, { 
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                url: url,
+                brandName: name
+            })
+        }
+        );
+        const data = await response.json();
+        if (response.ok) {
+            return { redirect: `/dashboard/brands/brand?id=${data.brand.id}` }
+        }
+        else {
+            return data.message;
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function fetchBrandById(brandId: string) {
+    try {
+        const token = cookies().get('Token')?.value;
+        const response = await fetch(`${process.env.BACKEND_URL}/brands/${brandId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        })
+        const data = await response.json();
+        //console.log(data.brand.colors.colors)
+        if (response.ok) {
+           return data.brand as Brand
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function fetchProducts(brandId: string) {
+    try {
+        const token = cookies().get('Token')?.value; // Ensure the token is being retrieved
+        const response = await fetch(`${process.env.BACKEND_URL}/products/getProducts/${brandId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json', // Optional but good practice
+            },
+        });
+
+        // Check if the response is OK
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`); // More detailed error handling
+        }
+
+        const data = await response.json();
+        return data.products; // Assuming your response structure has products
+    } catch (error) {
+        console.error("Error fetching products:", error); // Improved error logging
+    }
+}
+
+// actions.ts
+
+export async function deleteBrand(brandId: string) {
+    try {
+        // Ensure token is available from the cookies (server-side safe)
+        const token = cookies().get('Token')?.value;
+
+        if (!token) {
+            throw new Error('Token is missing');
+        }
+
+        const response = await fetch(`${process.env.BACKEND_URL}/brands/${brandId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to delete brand');
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('Error deleting brand:', error);
+        throw error;
+    }
+}
+
+
+
+
+export async function createProduct(brandId: string, url : string) {
+    try {
+        const token = cookies().get('Token')?.value;
+        const response = await fetch(`${process.env.BACKEND_URL}/products/scrapeProduct`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                url: url,
+                brandId: brandId
+            })
+        })
+
+        const data = await response.json();
+        if (response.ok) {
+            return data.product
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function fetchProductById(prodId : string) {
+    try {
+        const token = cookies().get('Token')?.value;
+        const response = await fetch(`${process.env.BACKEND_URL}/products/getProductById/${prodId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+
+        });
+        const data = await response.json()
+        if (response.ok) {
+            return data.product as Product
+        } else {
+            return { error: data.message }
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function updateProduct(product_id : string, price : string, product_name: string,
+    images: Array<string>, description: string) {
+    try {
+        const token = cookies().get('Token')?.value;
+        const response = await fetch(`${process.env.BACKEND_URL}/products/updateProduct`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                product_id: product_id,
+                price: price,
+                product_name: product_name,
+                images: images,
+                description: description
+            })
+        });
+        const data = await response.json()
+        console.log(data)
+        if (response.ok) {
+            return data.updatedProd
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+export async function uploadToS3(formData: FormData) {
+    const token = cookies().get('Token')?.value; // Ensure the token is being retrieved
+    const response = await fetch(`${process.env.BACKEND_URL}/aws/uploadToS3`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+        body: formData,
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+        return data.src; // Return the uploaded image URL
+    } else {
+        console.error(data.message);
+        return null; // Handle error appropriately
+    }
+}
+
+
+export async function addLogoToLogos(formData: FormData, brandId: string) {
+    try {
+        const token = cookies().get('Token')?.value;
+        const response = await fetch(`${process.env.BACKEND_URL}/aws/uploadToS3`,{
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+            body: formData
+        });
+        const data = await response.json()
+        if (response.ok) {
+            const url = data.src
+            const response2 = await fetch(`${process.env.BACKEND_URL}/brands/addLogo`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    brandId: brandId,
+                    logo: url
+                })
+            });
+            const data2 = await response2.json();
+            if (response2.ok) {
+                return data.src
+
+            } else {
+                return { error: data2.message }
+            }
+        } else {
+            return { error: data.message }
+        }
+    } catch (error) {
+
+    }
+}
+
+export async function updateBrands(brand_id: string, brand_name: string,
+    colors: Colors, fonts: Fonts, logos: string[]) {
+        try {
+            const token = cookies().get('Token')?.value;
+            const response = await fetch(`${process.env.BACKEND_URL}/brands/updateBrand`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    brandName: brand_name,
+                    logos: logos,
+                    fonts: fonts,
+                    colors: colors,
+                    brandId: brand_id
+                })
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                return data.updateBrand
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    }

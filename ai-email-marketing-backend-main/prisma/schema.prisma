@@ -1,0 +1,131 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id               String    @default(uuid()) @unique @id
+  firstName        String?
+  LastName         String?
+  phoneNumber      String?
+  Address          String?
+  email            String    @unique
+  hashedPassword   String
+  stripeCustomerId String?   // Optional: Stripe Customer ID for subscriptions
+  subscriptions    Subscription[] // Relationship to Subscription model
+  emailUsages      EmailUsage[]    // Relationship to EmailUsage model
+  }
+
+  model EmailUsage {
+    id        String   @default(uuid()) @unique @id
+    month     Int      // Month (1-12)
+    year      Int      // Year (e.g., 2024)
+    emailCount Int     @default(0)  // Number of emails sent in the given month
+    user      User     @relation(fields: [userId], references: [id])
+    userId    String   // Foreign key to User model
+
+    @@unique([userId, month, year]) // Ensure unique email usage per user for each month/year
+  }
+
+model Subscription {
+  id                 String            @default(uuid()) @unique @id
+  user               User              @relation(fields: [userId], references: [id])
+  userId             String            // Foreign key for User
+  stripeSubscriptionId String?         @unique // Ensure it is defined properly here
+  status             String            // Subscription status (active, canceled, trialing, etc.)
+  currentPeriodEnd   DateTime          // The date when the current period ends
+  plan               SubscriptionPlan? @relation(fields: [planId], references: [id])
+  planId             String?           // Foreign key for SubscriptionPlan
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+}
+
+model SubscriptionPlan {
+  id              String    @default(uuid()) @unique @id
+  stripeProductId String?   // Optional: Stripe Product ID
+  stripePriceId   String?   // Optional: Stripe Price ID (for different subscription tiers)
+  name            String    // Subscription plan name (e.g., "Basic", "Premium")
+  description     String?
+  price           Int       // Price in cents (e.g., 2000 means $20.00)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  subscriptions   Subscription[]
+}
+
+model Brands {
+  id          String   @default(uuid()) @unique @id
+  user_id     String
+  brand_name  String
+  logos       String[]
+  colors      Json?
+  fonts       Json?
+  brand_url   String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+  deleted_at  DateTime? 
+}
+model Products {
+  id String @default(uuid()) @unique @id
+  brand_id String
+  price String?
+  product_url String?
+  product_name String?
+  images String[]
+  description String
+  created_at DateTime @default(now())
+
+}
+
+model editor {
+  id                 String   @default(uuid()) @unique @id
+  session_name       String
+  user_id            String
+  brand_id           String?
+  product_id         String?
+  email_saves        Json[]
+  preview_image_src  String?
+  assets             String[]
+  created_at         DateTime @default(now())
+  session_type       String   // "manual" or "generated"
+}
+model Templates {
+  id String @default(uuid()) @unique @id 
+  template String
+  category String
+  created_at DateTime @default(now())
+
+}
+
+model ESP {
+  id String @default(uuid()) @unique @id 
+  api_key String 
+  label String
+  user_id String 
+  provider String
+  created_at DateTime @default(now())
+}
+
+model KlaviyoTemplates {
+  id String @default(uuid()) @unique @id
+  template_id String @unique
+  user_id String 
+  created_at DateTime @default(now())
+}
+
+model KlaviyoCampaigns {
+  id String @default(uuid()) @unique @id
+  user_id String
+  campaign_id String @unique
+  created_at DateTime @default(now())
+}

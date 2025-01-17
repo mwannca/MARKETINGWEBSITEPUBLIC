@@ -1,0 +1,89 @@
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100em;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    min-width: 49em;
+    transform: scale(0.8);
+    border-radius: 20px;
+    overflow: visible;
+}
+
+.carousel-slide img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.carousel-description {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #f2f2f2;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Styling for the active slide */
+.carousel-slide.activeSlide {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+
+/* Styling for the previous slide */
+.carousel-slide.prevSlide {
+    transform: translateX(-50%) scale(0.9);
+    z-index: 1;
+}
+
+/* Styling for the next slide */
+.carousel-slide.nextSlide {
+    transform: translateX(50%) scale(0.9);
+    z-index: 1;
+}
+
+/* Arrow Styles */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #f2f2f2;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 3;
+    opacity: 0.8; /* Make the arrows slightly transparent */
+}
+
+.carousel-arrow:hover {
+    color: #a3e635; /* Lime green color for hover effect */
+    opacity: 1; /* Fully visible when hovered */
+}
+
+.prev-arrow {
+    left: 10%;
+}
+
+.next-arrow {
+    right: 10%;
+}

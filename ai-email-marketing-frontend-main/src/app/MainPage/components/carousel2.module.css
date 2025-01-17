@@ -1,0 +1,132 @@
+/* Custom carousel container */
+.custom-carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 30em;
+    max-width: 60vw;
+    padding: 20px 0;
+    overflow: hidden; /* Prevents extra elements from appearing outside */
+}
+
+/* Carousel wrapper */
+.custom-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 36em;
+}
+
+/* Custom carousel slide */
+.custom-carousel-slide {
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    width: 20em; /* Fixed width for all slides */
+    height: 25em; /* Fixed height for all slides */
+    transform: scale(0.7);
+    opacity: 0.4;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex; /* To ensure images align correctly */
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Optional: Add a background color for empty space */
+}
+
+/* Updated image styling to ensure consistency */
+.custom-carousel-slide img {
+    width: 100%; /* Image takes up full width of the slide */
+    height: 100%; /* Image takes up full height of the slide */
+    border-radius: 20px;
+    object-fit: cover; /* Ensures that images are scaled and cropped to fit */
+}
+
+/* Styling for the active slide (center) */
+.custom-carousel-slide.activeSlide {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 4;
+}
+
+/* Styling for the first previous slide */
+.custom-carousel-slide.prevSlide {
+    transform: translateX(-60%) scale(0.85);
+    opacity: 0.8;
+    z-index: 3;
+}
+
+/* Styling for the first next slide */
+.custom-carousel-slide.nextSlide {
+    transform: translateX(60%) scale(0.85);
+    opacity: 0.8;
+    z-index: 3;
+}
+
+/* Styling for the second previous slide */
+.custom-carousel-slide.secondPrevSlide {
+    transform: translateX(-120%) scale(0.7);
+    opacity: 0.6;
+    z-index: 2;
+}
+
+/* Styling for the second next slide */
+.custom-carousel-slide.secondNextSlide {
+    transform: translateX(120%) scale(0.7);
+    opacity: 0.6;
+    z-index: 2;
+}
+
+/* Arrow Styles */
+.custom-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #f2f2f2;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 5;
+    opacity: 0.8; /* Make the arrows slightly transparent */
+}
+
+.custom-carousel-arrow:hover {
+    color: #a3e635; /* Lime green color for hover effect */
+    opacity: 1;
+}
+
+.custom-prev-arrow {
+    left: 10px;
+}
+
+.custom-next-arrow {
+    right: 10px;
+}
+
+/* Carousel Indicators */
+.custom-carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.custom-indicator-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #888;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-indicator-dot.active {
+    background-color: #a3e635; /* Lime green color for the active dot */
+}

@@ -1,0 +1,72 @@
+.subscription-cards-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left */
+    flex-wrap: wrap; /* Allows wrapping to the next row if the container width is exceeded */
+    gap: 16px; /* Space between the cards */
+    margin: 0 auto; /* Center the cards in the container */
+}
+
+.subscription-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(33.333% - 32px); /* Three cards per row, minus the gap */
+    max-width: calc(33.333% - 32px); /* Max width ensures cards don't stretch too much */
+}
+
+.subscription-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.subscription-card-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color:black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.subscription-card-body {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.subscription-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.subscription-button {
+    background-color: #09f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.subscription-button:hover {
+    background-color: #0073e6;
+}
+.subscription-card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.subscription-card-icon img {
+    width: 40px;
+    height: 40px;
+}

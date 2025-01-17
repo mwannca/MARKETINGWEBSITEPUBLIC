@@ -1,0 +1,108 @@
+.key-features-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3em;
+    max-width: 80em;
+    margin: 0 auto;
+    padding: 2em 1em;
+}
+
+.key-features-column {
+    width: 50%;
+}
+
+.text-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.key-features-title {
+    font-size: 0.875rem; /* Equivalent to 14px */
+    color: #f2f2f2;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.key-features-heading {
+    font-size: 2rem; /* Equivalent to 32px */
+    line-height: 1.2;
+    font-weight: 600;
+    margin-top: 0.5em;
+    color: #f2f2f2;
+}
+
+.highlighted-text {
+    color: #a3e635; /* Lime green color to match the design */
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.feature-button {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background: #27272a;
+    color: #f2f2f2;
+    padding: 1em 1.5em;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.feature-button img {
+    width: 2em; /* Icon size */
+    height: 2em;
+    border-radius: 50%;
+    background-color: rgba(163, 230, 53, 0.1);
+    padding: 0.5em;
+}
+
+.feature-title {
+    font-size: 1rem; /* Equivalent to 16px */
+    font-weight: 600;
+}
+
+.active-button {
+    background: linear-gradient(90deg, rgba(162, 234, 252, 0.8) 0%, rgba(163, 230, 53, 0.8) 100%);
+    border: 2px solid #84c926;
+    color: #27272a;
+}
+
+.image-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-image-wrapper {
+    background: #1c1c1f;
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+.feature-description {
+    color: #f2f2f2;
+    font-size: 1rem;
+    margin-top: 1em;
+}
